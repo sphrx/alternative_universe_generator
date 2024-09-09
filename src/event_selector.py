@@ -1,5 +1,5 @@
 # src/event_selector.py
-from src.imports import json, random, Dict, Path, logging
+from src.imports import json, random, Dict, List, Path, logging
 from src.exceptions import EventFileNotFoundError, EventDataError
 
 logger = logging.getLogger(__name__)
