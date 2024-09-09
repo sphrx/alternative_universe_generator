@@ -17,7 +17,7 @@ class TextFormatter:
     @staticmethod
     def format_world_description(description: str) -> str:
         formatted_text = f"{'=' * 50}\n"
-        formatted_text += "Описание альтернативной вселенной:\n\n"
+        formatted_text += "Описание альтернативной истории:\n\n"
         # Удаляем первую строку описания, если она начинается с "В этой альтернативной вселенной:"
         description_lines = description.split('\n')
         if description_lines[0].strip() == "В этой альтернативной вселенной:":

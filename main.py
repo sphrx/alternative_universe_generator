@@ -25,7 +25,8 @@ def main():
 
         world_description = world_builder.build_world_description(all_events, selected_event, alternative)
 
-        print("Генератор альтернативных вселенных\n")
+        print(f"{'=' * 50}")
+        print("Генератор альтернативной истории".upper())
         print(text_formatter.format_event(selected_event, alternative))
         print(text_formatter.format_world_description(world_description))
 
