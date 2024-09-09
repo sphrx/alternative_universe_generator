@@ -1,6 +1,4 @@
-import json
-import random
-from typing import Dict
+from src.imports import json, random, Dict
 
 class EventSelector:
     def __init__(self, file_path: str):
