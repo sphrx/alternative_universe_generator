@@ -11,8 +11,13 @@ class WorldBuilder:
                                      "развивается по совершенно иному пути"]
         self.cultural_paradigms = ["индивидуалистическая", "коллективистская", "технократическая", "экологическая",
                                    "духовная"]
-        self.economic_systems = ["капитализм", "социализм", "смешанная экономика", "постдефицитная экономика",
-                                 "феодализм"]
+        self.economic_systems = {
+            "капитализм": "капитализме",
+            "социализм": "социализме",
+            "смешанная экономика": "смешанной экономике",
+            "постдефицитная экономика": "постдефицитной экономике",
+            "феодализм": "феодализме"
+        }
 
     def build_world_description(self, events: List[Dict], changed_event: Dict, alternative: str) -> str:
         world = self._generate_base_world()
@@ -29,7 +34,7 @@ class WorldBuilder:
             "dominant_power": random.choice(self.power_structures),
             "tech_level": random.choice(self.technological_levels),
             "culture": random.choice(self.cultural_paradigms),
-            "economy": random.choice(self.economic_systems),
+            "economy": random.choice(list(self.economic_systems.keys())),
             "key_differences": []
         }
 
@@ -37,7 +42,6 @@ class WorldBuilder:
         impact = random.choice(event['modern_impact'])
         world['key_differences'].append(f"Из-за изменения в событии '{event['title']}': {impact}")
 
-        # Дополнительные изменения на основе альтернативы
         if "религия" in alternative.lower():
             world['culture'] = "духовная"
         elif "технология" in alternative.lower():
@@ -46,17 +50,16 @@ class WorldBuilder:
             world['dominant_power'] = random.choice(self.power_structures[:3])
 
     def _apply_normal_impact(self, world: Dict, event: Dict):
-        # Случайный шанс на влияние обычного события
         if random.random() < 0.3:  # 30% шанс
             impact = random.choice(event['consequences'])
             world['key_differences'].append(f"Влияние события '{event['title']}': {impact}")
 
     def _format_world_description(self, world: Dict) -> str:
-        description = f"В этой альтернативной вселенной:\n\n"
+        description = ""  # Убираем начальную строку
         description += f"Доминирующей формой правления является {world['dominant_power']}.\n"
         description += f"Технологическое развитие {world['tech_level']}.\n"
         description += f"Культура преимущественно {world['culture']}.\n"
-        description += f"Экономическая система основана на {world['economy']}.\n\n"
+        description += f"Экономическая система основана на {self.economic_systems[world['economy']]}.\n\n"
         description += "Ключевые отличия от нашей реальности:\n"
         for diff in world['key_differences']:
             description += f"- {diff}\n"
