@@ -3,35 +3,61 @@ from src.imports import Dict, List, random
 
 
 class WorldBuilder:
-    @staticmethod
-    def build_world_description(
-            event: Dict,
-            alternative: str,
-            consequences: List[str]
-    ) -> str:
-        universe_number = random.randint(1, 9999)
-        year = abs(event['year'])
-        era = "н.э." if event['year'] > 0 else "до н.э."
+    def __init__(self):
+        self.power_structures = ["империя", "федерация", "конфедерация", "республика", "теократия",
+                                 "анархическое общество"]
+        self.technological_levels = ["отстает от нашей реальности на столетия",
+                                     "примерно соответствует нашей реальности", "значительно опережает нашу реальность",
+                                     "развивается по совершенно иному пути"]
+        self.cultural_paradigms = ["индивидуалистическая", "коллективистская", "технократическая", "экологическая",
+                                   "духовная"]
+        self.economic_systems = ["капитализм", "социализм", "смешанная экономика", "постдефицитная экономика",
+                                 "феодализм"]
 
-        description = f"Альтернативная вселенная #{universe_number}:\n\n"
-        description += f"Ключевое изменение: В {year} году {era} {alternative}\n\n"
-        description += "Последствия:\n"
-        for consequence in consequences:
-            description += f"- {consequence}\n"
+    def build_world_description(self, events: List[Dict], changed_event: Dict, alternative: str) -> str:
+        world = self._generate_base_world()
+        for event in events:
+            if event['id'] == changed_event['id']:
+                self._apply_alternative_impact(world, changed_event, alternative)
+            else:
+                self._apply_normal_impact(world, event)
 
-        description += f"\nСовременный мир:\n{WorldBuilder._generate_modern_world(event, alternative)}"
+        return self._format_world_description(world)
 
+    def _generate_base_world(self) -> Dict:
+        return {
+            "dominant_power": random.choice(self.power_structures),
+            "tech_level": random.choice(self.technological_levels),
+            "culture": random.choice(self.cultural_paradigms),
+            "economy": random.choice(self.economic_systems),
+            "key_differences": []
+        }
+
+    def _apply_alternative_impact(self, world: Dict, event: Dict, alternative: str):
+        impact = random.choice(event['modern_impact'])
+        world['key_differences'].append(f"Из-за изменения в событии '{event['title']}': {impact}")
+
+        # Дополнительные изменения на основе альтернативы
+        if "религия" in alternative.lower():
+            world['culture'] = "духовная"
+        elif "технология" in alternative.lower():
+            world['tech_level'] = random.choice(self.technological_levels[1:])
+        elif "империя" in alternative.lower() or "государство" in alternative.lower():
+            world['dominant_power'] = random.choice(self.power_structures[:3])
+
+    def _apply_normal_impact(self, world: Dict, event: Dict):
+        # Случайный шанс на влияние обычного события
+        if random.random() < 0.3:  # 30% шанс
+            impact = random.choice(event['consequences'])
+            world['key_differences'].append(f"Влияние события '{event['title']}': {impact}")
+
+    def _format_world_description(self, world: Dict) -> str:
+        description = f"В этой альтернативной вселенной:\n\n"
+        description += f"Доминирующей формой правления является {world['dominant_power']}.\n"
+        description += f"Технологическое развитие {world['tech_level']}.\n"
+        description += f"Культура преимущественно {world['culture']}.\n"
+        description += f"Экономическая система основана на {world['economy']}.\n\n"
+        description += "Ключевые отличия от нашей реальности:\n"
+        for diff in world['key_differences']:
+            description += f"- {diff}\n"
         return description
-
-    @staticmethod
-    def _generate_modern_world(event: Dict, alternative: str) -> str:
-        # Это упрощенная версия. В реальном приложении здесь была бы более сложная логика
-        dominant_powers = ["Новоперсидская империя", "Римская федерация", "Китайская глобальная держава",
-                           "Индийский союз"]
-        religions = ["зороастризм", "политеизм", "буддизм", "синкретическая мировая религия"]
-        tech_levels = ["отстает от нашей реальности на 200-300 лет",
-                       "опережает нашу реальность на несколько десятилетий", "развивается по совершенно иному пути"]
-
-        return (f"Доминирующей мировой державой является {random.choice(dominant_powers)}. "
-                f"Основные религии - {random.choice(religions)}. "
-                f"Технологическое развитие {random.choice(tech_levels)} из-за изменившегося хода истории.")

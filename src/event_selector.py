@@ -31,3 +31,6 @@ class EventSelector:
             logger.warning("No events available to select from")
             raise EventDataError("No events available")
         return random.choice(self.events)
+
+    def get_all_events(self) -> List[Dict]:
+        return self.events

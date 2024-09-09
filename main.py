@@ -2,11 +2,10 @@
 import logging
 from src.event_selector import EventSelector
 from src.alternative_generator import AlternativeGenerator
-from src.consequence_engine import ConsequenceEngine
 from src.world_builder import WorldBuilder
 from src.exceptions import EventFileNotFoundError, EventDataError
 
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.INFO, 
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     filename='alternative_universe.log')
 
@@ -16,32 +15,30 @@ def main():
     try:
         event_selector = EventSelector('data/historical_events.json')
         alternative_generator = AlternativeGenerator()
-        consequence_engine = ConsequenceEngine()
         world_builder = WorldBuilder()
 
+        all_events = event_selector.get_all_events()
         selected_event = event_selector.select_random_event()
         alternative = alternative_generator.generate_alternative(selected_event)
-        consequences = consequence_engine.generate_consequences(
-            selected_event,
-            alternative
-        )
-        world_description = world_builder.build_world_description(
-            selected_event,
-            alternative,
-            consequences
-        )
 
+        world_description = world_builder.build_world_description(all_events, selected_event, alternative)
+
+        print("Генератор альтернативных вселенных\n")
+        print(f"Измененное историческое событие:")
+        print(f"{selected_event['title']} ({selected_event['year']})")
+        print(f"Альтернативный сценарий: {alternative}\n")
         print(world_description)
+
         logger.info("Successfully generated alternative universe")
     except EventFileNotFoundError as e:
         logger.error(f"Event file not found: {e}")
-        print("Error: Could not find the historical events file.")
+        print("Ошибка: Файл с историческими событиями не найден.")
     except EventDataError as e:
         logger.error(f"Event data error: {e}")
-        print("Error: There was a problem with the historical event data.")
+        print("Ошибка: Проблема с данными исторических событий.")
     except Exception as e:
         logger.exception("An unexpected error occurred")
-        print(f"An unexpected error occurred: {e}")
+        print(f"Произошла непредвиденная ошибка: {e}")
 
 if __name__ == "__main__":
     main()
