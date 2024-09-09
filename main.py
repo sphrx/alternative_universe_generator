@@ -3,9 +3,10 @@ import logging
 from src.event_selector import EventSelector
 from src.alternative_generator import AlternativeGenerator
 from src.world_builder import WorldBuilder
+from src.text_formatter import TextFormatter
 from src.exceptions import EventFileNotFoundError, EventDataError
 
-logging.basicConfig(level=logging.INFO, 
+logging.basicConfig(level=logging.INFO,
                     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     filename='alternative_universe.log')
 
@@ -16,6 +17,7 @@ def main():
         event_selector = EventSelector('data/historical_events.json')
         alternative_generator = AlternativeGenerator()
         world_builder = WorldBuilder()
+        text_formatter = TextFormatter()
 
         all_events = event_selector.get_all_events()
         selected_event = event_selector.select_random_event()
@@ -24,10 +26,8 @@ def main():
         world_description = world_builder.build_world_description(all_events, selected_event, alternative)
 
         print("Генератор альтернативных вселенных\n")
-        print(f"Измененное историческое событие:")
-        print(f"{selected_event['title']} ({selected_event['year']})")
-        print(f"Альтернативный сценарий: {alternative}\n")
-        print(world_description)
+        print(text_formatter.format_event(selected_event, alternative))
+        print(text_formatter.format_world_description(world_description))
 
         logger.info("Successfully generated alternative universe")
     except EventFileNotFoundError as e:
