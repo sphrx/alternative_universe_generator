@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    volumes:
+      - ./data:/app/data:ro
+      - ./files_input:/app/files_input:ro
+      - ./files_output:/app/files_output:rw
+    environment:
+      - PYTHONUNBUFFERED=1

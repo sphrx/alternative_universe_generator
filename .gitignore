@@ -1,3 +1,8 @@
+files_input/*
+!files_input/.gitkeep
+files_output/*
+!files_output/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

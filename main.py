@@ -1,45 +1,52 @@
 # main.py
-import logging
-from src.event_selector import EventSelector
-from src.alternative_generator import AlternativeGenerator
-from src.world_builder import WorldBuilder
-from src.text_formatter import TextFormatter
-from src.exceptions import EventFileNotFoundError, EventDataError
+from src.imports import *
 
-logging.basicConfig(level=logging.INFO,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    filename='alternative_universe.log')
+# Определение путей
+DATA_DIR = Path("data")
+INPUT_DIR = Path("files_input")
+OUTPUT_DIR = Path("files_output")
 
-logger = logging.getLogger(__name__)
+
+def load_historical_events():
+    with open(DATA_DIR / "historical_events.json", "r") as file:
+        return json.load(file)
+
+
+def save_alternative_universe(universe_description, filename):
+    output_file = OUTPUT_DIR / filename
+    with open(output_file, "w") as file:
+        file.write(universe_description)
+    print(f"Alternative universe saved to {output_file}")
+
 
 def main():
-    try:
-        event_selector = EventSelector('data/historical_events.json')
-        alternative_generator = AlternativeGenerator()
-        world_builder = WorldBuilder()
-        text_formatter = TextFormatter()
+    # Убедимся, что выходная директория существует
+    OUTPUT_DIR.mkdir(exist_ok=True)
 
-        all_events = event_selector.get_all_events()
-        selected_event = event_selector.select_random_event()
-        alternative = alternative_generator.generate_alternative(selected_event)
+    # Загрузка исторических событий
+    historical_events = load_historical_events()
 
-        world_description = world_builder.build_world_description(all_events, selected_event, alternative)
+    event_selector = EventSelector(historical_events['events'])
+    alternative_generator = AlternativeGenerator()
+    world_builder = WorldBuilder()
+    text_formatter = TextFormatter()
 
-        print(f"{'=' * 50}")
-        print("Генератор альтернативной истории".upper())
-        print(text_formatter.format_event(selected_event, alternative))
-        print(text_formatter.format_world_description(world_description))
+    selected_event = event_selector.select_random_event()
+    alternative = alternative_generator.generate_alternative(selected_event)
+    world_description = world_builder.build_world_description(historical_events['events'], selected_event, alternative)
 
-        logger.info("Successfully generated alternative universe")
-    except EventFileNotFoundError as e:
-        logger.error(f"Event file not found: {e}")
-        print("Ошибка: Файл с историческими событиями не найден.")
-    except EventDataError as e:
-        logger.error(f"Event data error: {e}")
-        print("Ошибка: Проблема с данными исторических событий.")
-    except Exception as e:
-        logger.exception("An unexpected error occurred")
-        print(f"Произошла непредвиденная ошибка: {e}")
+    formatted_output = text_formatter.format_event(selected_event, alternative)
+    formatted_output += "\n\n" + text_formatter.format_world_description(world_description)
+
+    # Генерация уникального имени файла
+    output_filename = f"alternative_universe_{selected_event['id']}.txt"
+
+    # Сохранение результата
+    save_alternative_universe(formatted_output, output_filename)
+
+    # Вывод результата в консоль
+    print(formatted_output)
+
 
 if __name__ == "__main__":
     main()

@@ -1,4 +1,5 @@
-# src/exceptions.py
+from src.imports import Exception
+
 class EventFileNotFoundError(Exception):
     """Вызывается, когда файл с историческими событиями не найден."""
     pass

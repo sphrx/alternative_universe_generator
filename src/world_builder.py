@@ -1,4 +1,3 @@
-# src/world_builder.py
 from src.imports import Dict, List, random
 
 
@@ -55,7 +54,7 @@ class WorldBuilder:
             world['key_differences'].append(f"Влияние события '{event['title']}': {impact}")
 
     def _format_world_description(self, world: Dict) -> str:
-        description = ""  # Убираем начальную строку
+        description = ""
         description += f"Доминирующей формой правления является {world['dominant_power']}.\n"
         description += f"Технологическое развитие {world['tech_level']}.\n"
         description += f"Культура преимущественно {world['culture']}.\n"
