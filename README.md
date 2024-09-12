@@ -30,6 +30,7 @@ To install the Alternative Universe Generator, follow these steps:
 ```
 git clone https://github.com/your-username/alternative-universe-generator.git
 ```
+
 ```
 cd alternative_universe_generator
 ```
