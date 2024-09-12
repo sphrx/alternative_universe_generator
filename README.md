@@ -29,7 +29,9 @@ To install the Alternative Universe Generator, follow these steps:
 
 ```
 git clone https://github.com/your-username/alternative-universe-generator.git
-cd alternative-universe-generator
+```
+```
+cd alternative_universe_generator
 ```
 
 2. Initialize configuration files:
