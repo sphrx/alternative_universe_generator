@@ -4,11 +4,14 @@ from src.alternative_generator import AlternativeGenerator
 from src.world_builder import WorldBuilder
 from src.text_formatter import TextFormatter
 
+# Загрузка переменных окружения
+load_dotenv()
+
 # Определение путей
 DATA_DIR = Path("data")
 INPUT_DIR = Path("files_input")
-OUTPUT_DIR = Path("files_output")
-LOG_DIR = Path("logs")
+OUTPUT_DIR = Path(os.getenv("OUTPUT_DIR", "files_output"))
+LOG_DIR = Path(os.getenv("LOG_DIR", "logs"))
 
 # Настройка логирования
 LOG_DIR.mkdir(exist_ok=True)
@@ -21,6 +24,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
+
 
 
 def load_historical_events():
@@ -58,11 +62,12 @@ def log_generation_process(events_count, selected_event, alternative):
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Generate alternative universes based on historical events.")
     parser.add_argument("--event", type=str, help="Specify a particular event ID to use")
-    parser.add_argument("--output", type=str, default="console", choices=["console", "file", "both"],
-                        help="Specify where to output the result (default: console)")
-    parser.add_argument("--seed", type=int, help="Set a random seed for reproducible results")
+    parser.add_argument("--output", type=str, default=os.getenv("DEFAULT_OUTPUT", "console"),
+                        choices=["console", "file", "both"],
+                        help="Specify where to output the result (default: from env or console)")
+    parser.add_argument("--seed", type=int, default=os.getenv("RANDOM_SEED"),
+                        help="Set a random seed for reproducible results")
     return parser.parse_args()
-
 
 def main():
     args = parse_arguments()
