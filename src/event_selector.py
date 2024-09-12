@@ -1,5 +1,6 @@
-# src/event_selector.py
-from src.imports import random, List, Dict, logging
+import random
+from typing import List, Dict
+import logging
 
 logger = logging.getLogger(__name__)
 

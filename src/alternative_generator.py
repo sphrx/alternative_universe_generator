@@ -1,5 +1,7 @@
 # src/alternative_generator.py
-from src.imports import random, Dict, logging
+from typing import Dict
+import random
+import logging
 
 logger = logging.getLogger(__name__)
 

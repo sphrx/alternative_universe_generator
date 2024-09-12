@@ -11,6 +11,10 @@ faker = "^28.4.1"
 python-dotenv = "^1.0.1"
 
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+ruff = "^0.6.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
