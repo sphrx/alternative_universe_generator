@@ -2,6 +2,7 @@
 import os
 import json
 import random
+from faker import Faker
 from pathlib import Path
 from typing import List, Dict
 

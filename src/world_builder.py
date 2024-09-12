@@ -1,8 +1,10 @@
-from src.imports import Dict, List, random
+# src/world_builder.py
+from src.imports import Dict, List, random, Faker
 
 
 class WorldBuilder:
     def __init__(self):
+        self.faker = Faker()
         self.power_structures = ["империя", "федерация", "конфедерация", "республика", "теократия",
                                  "анархическое общество"]
         self.technological_levels = ["отстает от нашей реальности на столетия",
@@ -34,7 +36,11 @@ class WorldBuilder:
             "tech_level": random.choice(self.technological_levels),
             "culture": random.choice(self.cultural_paradigms),
             "economy": random.choice(list(self.economic_systems.keys())),
-            "key_differences": []
+            "key_differences": [],
+            "notable_figures": [self.faker.name() for _ in range(3)],
+            "major_cities": [self.faker.city() for _ in range(3)],
+            "dominant_religion": self.faker.word(
+                ext_word_list=['Неоязычество', 'Техно-культ', 'Космический пантеизм', 'Цифровой буддизм', 'Эко-теизм'])
         }
 
     def _apply_alternative_impact(self, world: Dict, event: Dict, alternative: str):
@@ -43,6 +49,8 @@ class WorldBuilder:
 
         if "религия" in alternative.lower():
             world['culture'] = "духовная"
+            world['dominant_religion'] = self.faker.word(
+                ext_word_list=['Неоязычество', 'Техно-культ', 'Космический пантеизм', 'Цифровой буддизм', 'Эко-теизм'])
         elif "технология" in alternative.lower():
             world['tech_level'] = random.choice(self.technological_levels[1:])
         elif "империя" in alternative.lower() or "государство" in alternative.lower():
@@ -58,8 +66,15 @@ class WorldBuilder:
         description += f"Доминирующей формой правления является {world['dominant_power']}.\n"
         description += f"Технологическое развитие {world['tech_level']}.\n"
         description += f"Культура преимущественно {world['culture']}.\n"
-        description += f"Экономическая система основана на {self.economic_systems[world['economy']]}.\n\n"
-        description += "Ключевые отличия от нашей реальности:\n"
+        description += f"Экономическая система основана на {self.economic_systems[world['economy']]}.\n"
+        description += f"Доминирующая религия: {world['dominant_religion']}.\n\n"
+        description += "Крупнейшие города:\n"
+        for city in world['major_cities']:
+            description += f"- {city}\n"
+        description += "\nВыдающиеся личности:\n"
+        for figure in world['notable_figures']:
+            description += f"- {figure}\n"
+        description += "\nКлючевые отличия от нашей реальности:\n"
         for diff in world['key_differences']:
             description += f"- {diff}\n"
         return description
