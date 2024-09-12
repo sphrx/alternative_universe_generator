@@ -1,4 +1,3 @@
-# main.py
 from src.imports import *
 from src.event_selector import EventSelector
 from src.alternative_generator import AlternativeGenerator
@@ -18,7 +17,6 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(LOG_DIR / 'alternative_universe.log'),
-        logging.StreamHandler()
     ]
 )
 
@@ -54,11 +52,26 @@ def log_generation_process(events_count, selected_event, alternative):
     logger.info(f"Selected event: {selected_event['title']}")
     logger.info(f"Generated alternative: {alternative}")
     logger.info("Alternative universe generation completed successfully")
+    print("Log updated: see 'logs/alternative_universe.log' for details")
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(description="Generate alternative universes based on historical events.")
+    parser.add_argument("--event", type=str, help="Specify a particular event ID to use")
+    parser.add_argument("--output", type=str, default="console", choices=["console", "file", "both"],
+                        help="Specify where to output the result (default: console)")
+    parser.add_argument("--seed", type=int, help="Set a random seed for reproducible results")
+    return parser.parse_args()
 
 
 def main():
+    args = parse_arguments()
+
+    if args.seed is not None:
+        random.seed(args.seed)
+        Faker.seed(args.seed)
+
     try:
-        # Загрузка исторических событий
         historical_events = load_historical_events()
 
         event_selector = EventSelector(historical_events['events'])
@@ -66,7 +79,13 @@ def main():
         world_builder = WorldBuilder()
         text_formatter = TextFormatter()
 
-        selected_event = event_selector.select_random_event()
+        if args.event:
+            selected_event = next((event for event in historical_events['events'] if event['id'] == args.event), None)
+            if not selected_event:
+                raise ValueError(f"Event with ID {args.event} not found")
+        else:
+            selected_event = event_selector.select_random_event()
+
         alternative = alternative_generator.generate_alternative(selected_event)
         world_description = world_builder.build_world_description(historical_events['events'], selected_event,
                                                                   alternative)
@@ -74,20 +93,19 @@ def main():
         formatted_output = text_formatter.format_event(selected_event, alternative)
         formatted_output += "\n\n" + text_formatter.format_world_description(world_description)
 
-        # Генерация уникального имени файла
         output_filename = f"alternative_universe_{selected_event['id']}.txt"
 
-        # Сохранение результата
-        save_alternative_universe(formatted_output, output_filename)
+        if args.output in ["file", "both"]:
+            save_alternative_universe(formatted_output, output_filename)
 
-        # Вывод результата в консоль
-        print(formatted_output)
+        if args.output in ["console", "both"]:
+            print(formatted_output)
 
-        # Логирование процесса генерации
         log_generation_process(len(historical_events['events']), selected_event, alternative)
 
     except Exception as e:
         logger.exception(f"An error occurred during generation: {str(e)}")
+        print(f"An error occurred: {str(e)}")
 
 
 if __name__ == "__main__":

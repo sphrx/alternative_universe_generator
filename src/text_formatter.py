@@ -15,7 +15,6 @@ class TextFormatter:
         formatted_text += f"{event['title']} ({year} {era})\n\n"
         formatted_text += f"Оригинальное описание:\n{event['description']}\n\n"
         formatted_text += f"Альтернативный сценарий:\n{alternative}\n"
-        formatted_text += f"{'=' * 50}\n"
 
         return formatted_text
 
