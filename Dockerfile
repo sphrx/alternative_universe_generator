@@ -1,22 +1,22 @@
-# Используем официальный образ Python
+# Use the official Python image
 FROM python:3.12-slim
 
-# Устанавливаем рабочую директорию в контейнере
+# Set the working directory in the container
 WORKDIR /app
 
-# Копируем файлы зависимостей
+# Copy dependency files
 COPY pyproject.toml poetry.lock* ./
 
-# Устанавливаем poetry и зависимости
+# Install poetry and dependencies
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-interaction --no-ansi
 
-# Копируем остальные файлы проекта
+# Copy the rest of the project files
 COPY . .
 
-# Создаем директории для входных и выходных файлов
+# Create directories for input and output files
 RUN mkdir -p /app/files_input /app/files_output
 
-# Запускаем приложение
+# Run the application
 CMD ["python", "main.py"]
