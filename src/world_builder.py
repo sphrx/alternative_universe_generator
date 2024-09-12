@@ -1,5 +1,6 @@
-# src/world_builder.py
-from src.imports import Dict, List, random, Faker
+from src.imports import Dict, List, random, Faker, logging
+
+logger = logging.getLogger(__name__)
 
 
 class WorldBuilder:
@@ -19,8 +20,10 @@ class WorldBuilder:
             "постдефицитная экономика": "постдефицитной экономике",
             "феодализм": "феодализме"
         }
+        logger.info("WorldBuilder initialized")
 
     def build_world_description(self, events: List[Dict], changed_event: Dict, alternative: str) -> str:
+        logger.info(f"Building world description for changed event: {changed_event['title']}")
         world = self._generate_base_world()
         for event in events:
             if event['id'] == changed_event['id']:
@@ -31,7 +34,7 @@ class WorldBuilder:
         return self._format_world_description(world)
 
     def _generate_base_world(self) -> Dict:
-        return {
+        world = {
             "dominant_power": random.choice(self.power_structures),
             "tech_level": random.choice(self.technological_levels),
             "culture": random.choice(self.cultural_paradigms),
@@ -42,10 +45,13 @@ class WorldBuilder:
             "dominant_religion": self.faker.word(
                 ext_word_list=['Неоязычество', 'Техно-культ', 'Космический пантеизм', 'Цифровой буддизм', 'Эко-теизм'])
         }
+        logger.info(f"Generated base world: {world['dominant_power']} with {world['tech_level']} technology")
+        return world
 
     def _apply_alternative_impact(self, world: Dict, event: Dict, alternative: str):
         impact = random.choice(event['modern_impact'])
         world['key_differences'].append(f"Из-за изменения в событии '{event['title']}': {impact}")
+        logger.info(f"Applied alternative impact: {impact}")
 
         if "религия" in alternative.lower():
             world['culture'] = "духовная"
@@ -60,6 +66,7 @@ class WorldBuilder:
         if random.random() < 0.3:  # 30% шанс
             impact = random.choice(event['consequences'])
             world['key_differences'].append(f"Влияние события '{event['title']}': {impact}")
+            logger.info(f"Applied normal impact: {impact}")
 
     def _format_world_description(self, world: Dict) -> str:
         description = ""
@@ -77,4 +84,5 @@ class WorldBuilder:
         description += "\nКлючевые отличия от нашей реальности:\n"
         for diff in world['key_differences']:
             description += f"- {diff}\n"
+        logger.info("World description formatted")
         return description

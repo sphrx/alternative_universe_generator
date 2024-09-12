@@ -1,5 +1,8 @@
-files_input/*
-!files_input/.gitkeep
+# Logs
+logs/*
+!logs/.gitkeep
+
+# Output files
 files_output/*
 !files_output/.gitkeep
 

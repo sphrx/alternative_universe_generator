@@ -5,29 +5,30 @@ from src.alternative_generator import AlternativeGenerator
 from src.world_builder import WorldBuilder
 from src.text_formatter import TextFormatter
 
+# Определение путей
+DATA_DIR = Path("data")
+INPUT_DIR = Path("files_input")
+OUTPUT_DIR = Path("files_output")
+LOG_DIR = Path("logs")
+
 # Настройка логирования
+LOG_DIR.mkdir(exist_ok=True)
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('alternative_universe.log'),
+        logging.FileHandler(LOG_DIR / 'alternative_universe.log'),
         logging.StreamHandler()
     ]
 )
 
 logger = logging.getLogger(__name__)
 
-# Определение путей
-DATA_DIR = Path("data")
-INPUT_DIR = Path("files_input")
-OUTPUT_DIR = Path("files_output")
-
 
 def load_historical_events():
     try:
         with open(DATA_DIR / "historical_events.json", "r") as file:
             events = json.load(file)
-        logger.info(f"Successfully loaded {len(events['events'])} historical events")
         return events
     except FileNotFoundError:
         logger.error("Historical events file not found")
@@ -42,18 +43,20 @@ def save_alternative_universe(universe_description, filename):
     try:
         with open(output_file, "w") as file:
             file.write(universe_description)
-        logger.info(f"Alternative universe saved to {output_file}")
     except IOError:
         logger.error(f"Error writing to file {output_file}")
         raise
 
 
-def main():
+def log_generation_process(events_count, selected_event, alternative):
     logger.info("Starting alternative universe generation")
+    logger.info(f"Successfully loaded {events_count} historical events")
+    logger.info(f"Selected event: {selected_event['title']}")
+    logger.info(f"Generated alternative: {alternative}")
+    logger.info("Alternative universe generation completed successfully")
 
-    # Убедимся, что выходная директория существует
-    OUTPUT_DIR.mkdir(exist_ok=True)
 
+def main():
     try:
         # Загрузка исторических событий
         historical_events = load_historical_events()
@@ -64,11 +67,7 @@ def main():
         text_formatter = TextFormatter()
 
         selected_event = event_selector.select_random_event()
-        logger.info(f"Selected event: {selected_event['title']}")
-
         alternative = alternative_generator.generate_alternative(selected_event)
-        logger.info(f"Generated alternative: {alternative}")
-
         world_description = world_builder.build_world_description(historical_events['events'], selected_event,
                                                                   alternative)
 
@@ -84,7 +83,9 @@ def main():
         # Вывод результата в консоль
         print(formatted_output)
 
-        logger.info("Alternative universe generation completed successfully")
+        # Логирование процесса генерации
+        log_generation_process(len(historical_events['events']), selected_event, alternative)
+
     except Exception as e:
         logger.exception(f"An error occurred during generation: {str(e)}")
 

@@ -1,11 +1,12 @@
-# src/text_formatter.py
+from src.imports import Dict, logging
 
-from src.imports import Dict
+logger = logging.getLogger(__name__)
 
 
 class TextFormatter:
     @staticmethod
     def format_event(event: Dict, alternative: str) -> str:
+        logger.info(f"Formatting event: {event['title']}")
         year = abs(event['year'])
         era = "н.э." if event['year'] >= 0 else "до н.э."
 
@@ -20,6 +21,7 @@ class TextFormatter:
 
     @staticmethod
     def format_world_description(description: str) -> str:
+        logger.info("Formatting world description")
         formatted_text = f"{'=' * 50}\n"
         formatted_text += "Описание альтернативной вселенной:\n\n"
         formatted_text += description
