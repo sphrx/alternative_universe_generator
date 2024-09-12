@@ -1,7 +1,9 @@
 """Module for generating alternative scenarios for historical events."""
 
+from __future__ import annotations
+
 import logging
-import secrets  # Using secrets for cryptographically strong random choices
+import secrets
 
 logger = logging.getLogger(__name__)
 
@@ -24,5 +26,9 @@ class AlternativeGenerator:
             return "No alternative scenario found"
 
         alternative = secrets.choice(event["alternatives"])
-        logger.info("Generated alternative for event '%s': %s", event["title"], alternative)
+        logger.info(
+            "Generated alternative for event '%s': %s",
+            event["title"],
+            alternative,
+        )
         return alternative

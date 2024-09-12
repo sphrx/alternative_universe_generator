@@ -3,400 +3,400 @@
     {
       "id": "1000BC_01",
       "year": -1000,
-      "title": "Основание Царства Израиля",
-      "description": "Объединение еврейских племен под властью царя Саула",
+      "title": "Foundation of the Kingdom of Israel",
+      "description": "Unification of Jewish tribes under the rule of King Saul",
       "alternatives": [
-        "Еврейские племена остаются разрозненными",
-        "Формируется конфедерация вместо централизованного царства",
-        "Саул погибает в раннем возрасте, и царство не возникает"
+        "Jewish tribes remain scattered",
+        "A confederation is formed instead of a centralized kingdom",
+        "Saul dies at an early age, and the kingdom does not emerge"
       ],
       "consequences": [
-        "Развитие монотеизма идет по другому пути",
-        "Изменение баланса сил на Ближнем Востоке",
-        "Отсутствие единого еврейского государства влияет на мировую историю"
+        "Monotheism develops along a different path",
+        "Change in the balance of power in the Middle East",
+        "The absence of a unified Jewish state affects world history"
       ],
       "modern_impact": [
-        "Отсутствие или иная форма авраамических религий",
-        "Иное геополитическое устройство Ближнего Востока",
-        "Развитие науки и философии без влияния монотеистической традиции"
+        "Absence or different form of Abrahamic religions",
+        "Different geopolitical structure of the Middle East",
+        "Development of science and philosophy without the influence of monotheistic tradition"
       ]
     },
     {
       "id": "800BC_01",
       "year": -800,
-      "title": "Основание Рима",
-      "description": "Легендарное основание города Рима Ромулом и Ремом",
+      "title": "Foundation of Rome",
+      "description": "Legendary foundation of the city of Rome by Romulus and Remus",
       "alternatives": [
-        "Рим никогда не основан как единый город",
-        "Рим основан этрусками, а не латинами",
-        "Рим основан на несколько веков позже"
+        "Rome is never founded as a unified city",
+        "Rome is founded by Etruscans, not Latins",
+        "Rome is founded several centuries later"
       ],
       "consequences": [
-        "Отсутствие Римской империи в будущем",
-        "Этруски становятся доминирующей силой на Апеннинском полуострове",
-        "Изменение хода европейской истории"
+        "Absence of the Roman Empire in the future",
+        "Etruscans become the dominant force on the Apennine Peninsula",
+        "Change in the course of European history"
       ],
       "modern_impact": [
-        "Отсутствие романских языков и культур",
-        "Иное развитие правовых систем без влияния римского права",
-        "Иная архитектура и городское планирование в Европе"
+        "Absence of Romance languages and cultures",
+        "Different development of legal systems without the influence of Roman law",
+        "Different architecture and urban planning in Europe"
       ]
     },
     {
       "id": "600BC_01",
       "year": -600,
-      "title": "Рождение Будды",
-      "description": "Рождение Сиддхартхи Гаутамы, основателя буддизма",
+      "title": "Birth of Buddha",
+      "description": "Birth of Siddhartha Gautama, the founder of Buddhism",
       "alternatives": [
-        "Будда никогда не рождается",
-        "Будда становится политическим лидером вместо духовного учителя",
-        "Учение Будды не выходит за пределы небольшой группы последователей"
+        "Buddha is never born",
+        "Buddha becomes a political leader instead of a spiritual teacher",
+        "Buddha's teachings do not spread beyond a small group of followers"
       ],
       "consequences": [
-        "Отсутствие буддизма как мировой религии",
-        "Иное развитие философских и религиозных учений в Индии",
-        "Изменение культурного и духовного ландшафта Азии"
+        "Absence of Buddhism as a world religion",
+        "Different development of philosophical and religious teachings in India",
+        "Change in the cultural and spiritual landscape of Asia"
       ],
       "modern_impact": [
-        "Отсутствие влияния буддийской философии на современную психологию и медитативные практики",
-        "Иное развитие культуры и искусства в странах Юго-Восточной Азии",
-        "Изменение туристических потоков и культурного обмена между Востоком и Западом"
+        "Absence of Buddhist philosophy's influence on modern psychology and meditative practices",
+        "Different development of culture and art in Southeast Asian countries",
+        "Change in tourist flows and cultural exchange between East and West"
       ]
     },
     {
       "id": "400BC_01",
       "year": -400,
-      "title": "Расцвет Афинской демократии",
-      "description": "Период наибольшего развития демократических институтов в Древних Афинах",
+      "title": "Golden Age of Athenian Democracy",
+      "description": "Period of greatest development of democratic institutions in Ancient Athens",
       "alternatives": [
-        "Афины остаются под властью тиранов",
-        "В Афинах устанавливается олигархия",
-        "Спарта устанавливает гегемонию над всей Грецией"
+        "Athens remains under the rule of tyrants",
+        "An oligarchy is established in Athens",
+        "Sparta establishes hegemony over all of Greece"
       ],
       "consequences": [
-        "Отсутствие афинской модели демократии",
-        "Изменение развития политической философии",
-        "Иное влияние греческой культуры на мировую цивилизацию"
+        "Absence of the Athenian model of democracy",
+        "Change in the development of political philosophy",
+        "Different influence of Greek culture on world civilization"
       ],
       "modern_impact": [
-        "Иные формы современного демократического устройства",
-        "Отсутствие или иная концепция гражданских прав и свобод",
-        "Изменение в развитии систем образования и гражданского общества"
+        "Different forms of modern democratic systems",
+        "Absence or different concept of civil rights and liberties",
+        "Change in the development of education systems and civil society"
       ]
     },
     {
       "id": "200BC_01",
       "year": -200,
-      "title": "Создание Великой Китайской стены",
-      "description": "Объединение и расширение существующих укреплений в единую систему обороны",
+      "title": "Construction of the Great Wall of China",
+      "description": "Unification and expansion of existing fortifications into a single defense system",
       "alternatives": [
-        "Великая стена не строится, Китай полагается на дипломатию",
-        "Вместо стены создается сеть крепостей и военных поселений",
-        "Стена строится, но намного южнее, что приводит к потере северных территорий"
+        "The Great Wall is not built, China relies on diplomacy",
+        "A network of fortresses and military settlements is created instead of the wall",
+        "The wall is built much further south, leading to the loss of northern territories"
       ],
       "consequences": [
-        "Изменение отношений между Китаем и кочевыми народами",
-        "Иное распределение ресурсов в китайской экономике",
-        "Влияние на развитие военной стратегии и фортификации"
+        "Change in relations between China and nomadic peoples",
+        "Different allocation of resources in the Chinese economy",
+        "Influence on the development of military strategy and fortification"
       ],
       "modern_impact": [
-        "Отсутствие одного из самых известных памятников архитектуры",
-        "Иная этническая карта Северного Китая и Монголии",
-        "Изменение в туристической привлекательности Китая"
+        "Absence of one of the most famous architectural monuments",
+        "Different ethnic map of Northern China and Mongolia",
+        "Change in China's tourist appeal"
       ]
     },
     {
       "id": "1AD_01",
       "year": 1,
-      "title": "Рождение Иисуса Христа",
-      "description": "Рождение основателя христианства",
+      "title": "Birth of Jesus Christ",
+      "description": "Birth of the founder of Christianity",
       "alternatives": [
-        "Христианство не возникает",
-        "Иисус становится политическим лидером вместо религиозного",
-        "Учение Христа остается малоизвестным иудейским течением"
+        "Christianity does not emerge",
+        "Jesus becomes a political leader instead of a religious one",
+        "Christ's teachings remain a little-known Jewish sect"
       ],
       "consequences": [
-        "Отсутствие христианства как мировой религии",
-        "Изменение культурного и духовного развития Европы и Ближнего Востока",
-        "Иное развитие философских и этических учений"
+        "Absence of Christianity as a world religion",
+        "Change in the cultural and spiritual development of Europe and the Middle East",
+        "Different development of philosophical and ethical teachings"
       ],
       "modern_impact": [
-        "Иная система ценностей и морали в западном обществе",
-        "Отсутствие христианских праздников и традиций",
-        "Иное развитие искусства и архитектуры без влияния христианства"
+        "Different system of values and morality in Western society",
+        "Absence of Christian holidays and traditions",
+        "Different development of art and architecture without the influence of Christianity"
       ]
     },
     {
       "id": "200AD_01",
       "year": 200,
-      "title": "Изобретение бумаги в Китае",
-      "description": "Создание технологии производства бумаги Цай Лунем",
+      "title": "Invention of Paper in China",
+      "description": "Creation of paper production technology by Cai Lun",
       "alternatives": [
-        "Бумага не изобретается, продолжается использование шелка и бамбука для письма",
-        "Технология производства бумаги разрабатывается в другом регионе",
-        "Изобретение бумаги происходит намного позже"
+        "Paper is not invented, silk and bamboo continue to be used for writing",
+        "Paper production technology is developed in another region",
+        "The invention of paper occurs much later"
       ],
       "consequences": [
-        "Изменение скорости распространения информации и знаний",
-        "Влияние на развитие образования и бюрократии",
-        "Иное развитие книгопечатания в будущем"
+        "Change in the speed of information and knowledge dissemination",
+        "Impact on the development of education and bureaucracy",
+        "Different development of printing in the future"
       ],
       "modern_impact": [
-        "Задержка в развитии массового образования и грамотности",
-        "Иное развитие информационных технологий",
-        "Изменение в экологической ситуации из-за отсутствия бумажной промышленности"
+        "Delay in the development of mass education and literacy",
+        "Different development of information technologies",
+        "Change in the ecological situation due to the absence of the paper industry"
       ]
     },
     {
       "id": "400AD_01",
       "year": 400,
-      "title": "Падение Западной Римской империи",
-      "description": "Окончательный упадок и распад Западной Римской империи",
+      "title": "Fall of the Western Roman Empire",
+      "description": "Final decline and disintegration of the Western Roman Empire",
       "alternatives": [
-        "Римская империя успешно отражает варварские вторжения и продолжает существовать",
-        "Империя трансформируется в конфедерацию полунезависимых государств",
-        "Восточная Римская империя успешно воссоединяет империю"
+        "The Roman Empire successfully repels barbarian invasions and continues to exist",
+        "The Empire transforms into a confederation of semi-independent states",
+        "The Eastern Roman Empire successfully reunites the empire"
       ],
       "consequences": [
-        "Изменение политической карты Европы",
-        "Влияние на развитие феодализма",
-        "Иное развитие христианской церкви"
+        "Change in the political map of Europe",
+        "Impact on the development of feudalism",
+        "Different development of the Christian church"
       ],
       "modern_impact": [
-        "Иное языковое и культурное разнообразие в Европе",
-        "Продолжение использования римского права в большем масштабе",
-        "Изменение в развитии национальных государств"
+        "Different linguistic and cultural diversity in Europe",
+        "Continued use of Roman law on a larger scale",
+        "Change in the development of nation-states"
       ]
     },
     {
       "id": "600AD_01",
       "year": 600,
-      "title": "Возникновение ислама",
-      "description": "Начало проповеди Мухаммеда и зарождение ислама",
+      "title": "Rise of Islam",
+      "description": "Beginning of Muhammad's preaching and the emergence of Islam",
       "alternatives": [
-        "Ислам не возникает, арабские племена остаются язычниками",
-        "Вместо ислама на Аравийском полуострове распространяется христианство",
-        "Мухаммед создает светское государство вместо религиозного движения"
+        "Islam does not emerge, Arab tribes remain pagan",
+        "Christianity spreads on the Arabian Peninsula instead of Islam",
+        "Muhammad creates a secular state instead of a religious movement"
       ],
       "consequences": [
-        "Отсутствие исламской цивилизации и ее влияния на мировую историю",
-        "Изменение политической и культурной карты Ближнего Востока и Северной Африки",
-        "Иное развитие науки и философии в регионе"
+        "Absence of Islamic civilization and its influence on world history",
+        "Change in the political and cultural map of the Middle East and North Africa",
+        "Different development of science and philosophy in the region"
       ],
       "modern_impact": [
-        "Иная геополитическая ситуация на Ближнем Востоке и в Северной Африке",
-        "Отсутствие исламской архитектуры и искусства",
-        "Иное развитие банковской системы без исламских финансовых принципов"
+        "Different geopolitical situation in the Middle East and North Africa",
+        "Absence of Islamic architecture and art",
+        "Different development of the banking system without Islamic financial principles"
       ]
     },
     {
       "id": "800AD_01",
       "year": 800,
-      "title": "Коронация Карла Великого",
-      "description": "Провозглашение Карла Великого императором Запада",
+      "title": "Coronation of Charlemagne",
+      "description": "Proclamation of Charlemagne as Emperor of the West",
       "alternatives": [
-        "Карл Великий отказывается от имперской короны",
-        "Папа римский коронует другого правителя",
-        "Византия успешно противостоит созданию западной империи"
+        "Charlemagne refuses the imperial crown",
+        "The Pope crowns a different ruler",
+        "Byzantium successfully opposes the creation of a western empire"
       ],
       "consequences": [
-        "Изменение политической структуры средневековой Европы",
-        "Влияние на отношения между церковью и государством",
-        "Иное развитие феодальной системы"
+        "Change in the political structure of medieval Europe",
+        "Impact on relations between church and state",
+        "Different development of the feudal system"
       ],
       "modern_impact": [
-        "Изменение в формировании национальных идентичностей в Европе",
-        "Иное развитие отношений между государством и церковью",
-        "Влияние на формирование концепции европейского единства"
+        "Change in the formation of national identities in Europe",
+        "Different development of relations between state and church",
+        "Impact on the formation of the concept of European unity"
       ]
     },
     {
       "id": "1000AD_01",
       "year": 1000,
-      "title": "Крещение Руси",
-      "description": "Принятие христианства Киевской Русью при князе Владимире",
+      "title": "Christianization of Kievan Rus",
+      "description": "Adoption of Christianity by Kievan Rus under Prince Vladimir",
       "alternatives": [
-        "Русь принимает ислам",
-        "Русь остается языческой",
-        "Христианство принимается в форме католицизма, а не православия"
+        "Rus adopts Islam",
+        "Rus remains pagan",
+        "Christianity is adopted in the form of Catholicism, not Orthodoxy"
       ],
       "consequences": [
-        "Изменение культурной ориентации Руси",
-        "Влияние на отношения с Византией и Западной Европой",
-        "Иное развитие русской культуры и искусства"
+        "Change in the cultural orientation of Rus",
+        "Impact on relations with Byzantium and Western Europe",
+        "Different development of Russian culture and art"
       ],
       "modern_impact": [
-        "Изменение в религиозном составе современной России и соседних стран",
-        "Иное культурное влияние России на мировой арене",
-        "Изменение в архитектурном облике русских городов"
+        "Change in the religious composition of modern Russia and neighboring countries",
+        "Different cultural influence of Russia on the world stage",
+        "Change in the architectural appearance of Russian cities"
       ]
     },
     {
       "id": "1200AD_01",
       "year": 1200,
-      "title": "Монгольское завоевание",
-      "description": "Начало масштабных завоеваний под предводительством Чингисхана",
+      "title": "Mongol Conquest",
+      "description": "Beginning of large-scale conquests under the leadership of Genghis Khan",
       "alternatives": [
-        "Монголы не объединяются под властью Чингисхана",
-        "Монгольская экспансия направлена только на Китай",
-        "Монголы создают торговую империю вместо военной"
+        "Mongols do not unite under Genghis Khan",
+        "Mongol expansion is directed only at China",
+        "Mongols create a trade empire instead of a military one"
       ],
       "consequences": [
-        "Изменение политической карты Евразии",
-        "Влияние на развитие торговых путей",
-        "Иное развитие технологий и культурный обмен"
+        "Change in the political map of Eurasia",
+        "Impact on the development of trade routes",
+        "Different development of technologies and cultural exchange"
       ],
       "modern_impact": [
-        "Иное этническое и культурное разнообразие в Центральной Азии",
-        "Сохранение древних цивилизаций, уничтоженных монголами",
-        "Изменение в распространении технологий между Востоком и Западом"
+        "Different ethnic and cultural diversity in Central Asia",
+        "Preservation of ancient civilizations destroyed by the Mongols",
+        "Change in the spread of technologies between East and West"
       ]
     },
     {
       "id": "1400AD_01",
       "year": 1400,
-      "title": "Начало эпохи Возрождения",
-      "description": "Культурный и научный подъем в Италии, начало Ренессанса",
+      "title": "Beginning of the Renaissance",
+      "description": "Cultural and scientific rise in Italy, the start of the Renaissance",
       "alternatives": [
-        "Возрождение не происходит, Европа остается в культурной стагнации",
-        "Центр Возрождения формируется в другом регионе, например, в Византии",
-        "Возрождение принимает религиозный, а не светский характер"
+        "The Renaissance does not occur, Europe remains in cultural stagnation",
+        "The center of the Renaissance forms in a different region, for example, in Byzantium",
+        "The Renaissance takes on a religious rather than secular character"
       ],
       "consequences": [
-        "Изменение развития европейского искусства и науки",
-        "Влияние на философскую и политическую мысль",
-        "Иное развитие отношений между церковью и светской культурой"
+        "Change in the development of European art and science",
+        "Impact on philosophical and political thought",
+        "Different development of relations between church and secular culture"
       ],
       "modern_impact": [
-        "Изменение в развитии современного искусства и архитектуры",
-        "Иное направление научной революции и технического прогресса",
-        "Влияние на современные концепции гуманизма и индивидуализма"
+        "Change in the development of modern art and architecture",
+        "Different direction of scientific revolution and technological progress",
+        "Impact on modern concepts of humanism and individualism"
       ]
     },
     {
       "id": "1500AD_01",
       "year": 1500,
-      "title": "Открытие Америки Колумбом",
-      "description": "Экспедиция Христофора Колумба достигает Нового Света",
+      "title": "Discovery of America by Columbus",
+      "description": "Christopher Columbus's expedition reaches the New World",
       "alternatives": [
-        "Америку открывает другая европейская держава",
-        "Открытие Америки происходит на несколько десятилетий позже",
-        "Америку открывают не европейцы, а китайские или арабские мореплаватели"
+        "America is discovered by another European power",
+        "The discovery of America occurs several decades later",
+        "America is discovered not by Europeans, but by Chinese or Arab seafarers"
       ],
       "consequences": [
-        "Изменение баланса сил между европейскими державами",
-        "Влияние на развитие мировой торговли и экономики",
-        "Иное развитие цивилизаций Нового Света"
+        "Change in the balance of power between European powers",
+        "Impact on the development of world trade and economy",
+        "Different development of New World civilizations"
       ],
       "modern_impact": [
-        "Иное распределение мировых языков и культур",
-        "Изменение в глобальной экономической системе",
-        "Другое развитие сельского хозяйства из-за отсутствия обмена культурами между Старым и Новым Светом"
+        "Different distribution of world languages and cultures",
+        "Change in the global economic system",
+        "Different development of agriculture due to the absence of crop exchange between the Old and New Worlds"
       ]
     },
     {
       "id": "1600AD_01",
       "year": 1600,
-      "title": "Основание Ост-Индской компании",
-      "description": "Создание английской Ост-Индской компании, положившей начало эпохе колониализма",
+      "title": "Establishment of the East India Company",
+      "description": "Creation of the English East India Company, which marked the beginning of the colonial era",
       "alternatives": [
-        "Ост-Индская компания не создается, колониальная экспансия задерживается",
-        "Доминирующей колониальной державой становится не Англия, а другая европейская страна",
-        "Азиатские державы успешно противостоят европейской экспансии"
+        "The East India Company is not created, colonial expansion is delayed",
+        "A European country other than England becomes the dominant colonial power",
+        "Asian powers successfully resist European expansion"
       ],
       "consequences": [
-        "Изменение в развитии мировой торговли и колониальной системы",
-        "Влияние на формирование капитализма и глобальной экономики",
-        "Иное развитие отношений между Европой и Азией"
+        "Change in the development of world trade and the colonial system",
+        "Impact on the formation of capitalism and the global economy",
+        "Different development of relations between Europe and Asia"
       ],
       "modern_impact": [
-        "Другое распределение экономической мощи в мире",
-        "Изменение в распространении английского языка как глобального",
-        "Иное развитие политических систем в бывших колониях"
+        "Different distribution of economic power in the world",
+        "Change in the spread of English as a global language",
+        "Different development of political systems in former colonies"
       ]
     },
     {
       "id": "1700AD_01",
       "year": 1700,
-      "title": "Начало промышленной революции",
-      "description": "Начало индустриализации в Англии",
+      "title": "Beginning of the Industrial Revolution",
+      "description": "Start of industrialization in England",
       "alternatives": [
-        "Промышленная революция не происходит, сохраняется аграрное общество",
-        "Промышленная революция начинается в другой стране, например, в Китае",
-        "Технологический прогресс идет по другому пути, например, с акцентом на возобновляемые источники энергии"
+        "The Industrial Revolution does not occur, agrarian society persists",
+        "The Industrial Revolution begins in another country, for example, in China",
+        "Technological progress follows a different path, for example, with an emphasis on renewable energy sources"
       ],
       "consequences": [
-        "Изменение экономической и социальной структуры общества",
-        "Влияние на урбанизацию и демографические процессы",
-        "Иное развитие технологий и научного прогресса"
+        "Change in the economic and social structure of society",
+        "Impact on urbanization and demographic processes",
+        "Different development of technologies and scientific progress"
       ],
       "modern_impact": [
-        "Другой уровень технологического развития в современном мире",
-        "Изменение в структуре занятости и экономических системах",
-        "Иное развитие экологических проблем и подходов к их решению"
+        "Different level of technological development in the modern world",
+        "Change in employment structure and economic systems",
+        "Different development of environmental problems and approaches to their solution"
       ]
     },
     {
       "id": "1800AD_01",
       "year": 1800,
-      "title": "Наполеоновские войны",
-      "description": "Серия конфликтов под предводительством Наполеона Бонапарта",
+      "title": "Napoleonic Wars",
+      "description": "Series of conflicts led by Napoleon Bonaparte",
       "alternatives": [
-        "Наполеон не приходит к власти во Франции",
-        "Наполеон успешно завоевывает всю Европу",
-        "Россия заключает долгосрочный союз с Наполеоновской Францией"
+        "Napoleon does not come to power in France",
+        "Napoleon successfully conquers all of Europe",
+        "Russia forms a long-term alliance with Napoleonic France"
       ],
       "consequences": [
-        "Изменение политической карты Европы",
-        "Влияние на развитие национальных государств",
-        "Иное распространение идей Французской революции"
+        "Change in the political map of Europe",
+        "Impact on the development of nation-states",
+        "Different spread of French Revolution ideas"
       ],
       "modern_impact": [
-        "Другое устройство Европейского союза или его отсутствие",
-        "Изменение в развитии правовых систем и конституционализма",
-        "Иное соотношение сил между европейскими державами в современном мире"
+        "Different structure of the European Union or its absence",
+        "Change in the development of legal systems and constitutionalism",
+        "Different balance of power between European powers in the modern world"
       ]
     },
     {
       "id": "1900AD_01",
       "year": 1900,
-      "title": "Открытие теории относительности",
-      "description": "Альберт Эйнштейн формулирует специальную теорию относительности",
+      "title": "Discovery of the Theory of Relativity",
+      "description": "Albert Einstein formulates the special theory of relativity",
       "alternatives": [
-        "Теория относительности не открывается, физика развивается по классическому пути",
-        "Теорию относительности открывает другой ученый, с иными выводами",
-        "Вместо теории относительности совершается прорыв в другой области физики"
+        "The theory of relativity is not discovered, physics develops along the classical path",
+        "The theory of relativity is discovered by another scientist, with different conclusions",
+        "Instead of the theory of relativity, a breakthrough is made in another area of physics"
       ],
       "consequences": [
-        "Изменение в понимании пространства, времени и гравитации",
-        "Влияние на развитие ядерной физики и космологии",
-        "Иное развитие технологий, связанных с релятивистскими эффектами"
+        "Change in the understanding of space, time, and gravity",
+        "Impact on the development of nuclear physics and cosmology",
+        "Different development of technologies related to relativistic effects"
       ],
       "modern_impact": [
-        "Отсутствие или иное развитие ядерных технологий",
-        "Изменение в развитии космической программы и спутниковых технологий",
-        "Другое направление развития фундаментальной физики и философии науки"
+        "Absence or different development of nuclear technologies",
+        "Change in the development of space programs and satellite technologies",
+        "Different direction of development in fundamental physics and philosophy of science"
       ]
     },
     {
       "id": "2000AD_01",
       "year": 2000,
-      "title": "Развитие интернета",
-      "description": "Широкое распространение интернета и начало цифровой эры",
+      "title": "Development of the Internet",
+      "description": "Widespread adoption of the internet and the beginning of the digital era",
       "alternatives": [
-        "Интернет остается преимущественно военной технологией",
-        "Вместо открытого интернета развиваются закрытые национальные сети",
-        "Развитие глобальной коммуникации идет по пути, отличному от интернета"
+        "The internet remains predominantly a military technology",
+        "Closed national networks develop instead of the open internet",
+        "Global communication develops along a path different from the internet"
       ],
       "consequences": [
-        "Изменение в способах коммуникации и обмена информацией",
-        "Влияние на развитие глобальной экономики и электронной коммерции",
-        "Иное развитие социальных отношений и культуры"
+        "Change in methods of communication and information exchange",
+        "Impact on the development of the global economy and e-commerce",
+        "Different development of social relations and culture"
       ],
       "modern_impact": [
-        "Отсутствие или иная форма социальных сетей и онлайн-сервисов",
-        "Изменение в методах работы и образования",
-        "Другое развитие проблем конфиденциальности и информационной безопасности"
+        "Absence or different form of social networks and online services",
+        "Change in work and education methods",
+        "Different development of privacy and information security issues"
       ]
     }
   ]

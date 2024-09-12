@@ -1,3 +1,13 @@
+# Ignore all files in the test_logs directory
+tests/test_logs/*
+# But don't ignore the .gitkeep file
+!tests/test_logs/.gitkeep
+
+# Ignore all files in the app_logs directory
+app_logs/*
+# But don't ignore the .gitkeep file
+!app_logs/.gitkeep
+
 # Environment variables
 .env
 

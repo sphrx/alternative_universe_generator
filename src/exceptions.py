@@ -1,9 +1,11 @@
-from src.imports import Exception
+"""Custom exceptions for the Alternative Universe Generator."""
+
+from __future__ import annotations
+
 
 class EventFileNotFoundError(Exception):
-    """Вызывается, когда файл с историческими событиями не найден."""
-    pass
+    """Raised when the file with historical events is not found."""
+
 
 class EventDataError(Exception):
-    """Вызывается при проблемах с данными исторических событий."""
-    pass
+    """Raised when there are problems with historical event data."""

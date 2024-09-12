@@ -1,85 +1,144 @@
 # Alternative Universe Generator
 
-## Description
-The Alternative Universe Generator is a Python-based application that creates fascinating "what-if" scenarios by altering key historical events. It generates descriptions of alternative universes based on changed historical outcomes, providing users with intriguing glimpses into possible alternate realities.
+This project is a Python application that generates alternative historical scenarios based on key events in world history.
 
-## Features
-- Random selection of historical events from a curated database
-- Generation of alternative scenarios for selected events
-- Creation of comprehensive alternative universe descriptions
-- Consideration of short-term and long-term consequences of historical changes
-- Logging of generated scenarios for future reference
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Development](#development)
+- [Testing](#testing)
+- [Docker](#docker)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Python 3.12 or higher
+- Poetry (for dependency management)
+- Docker (optional, for containerized usage)
 
 ## Installation
+
+To install the Alternative Universe Generator, follow these steps:
 
 1. Clone the repository:
 
 ```
-git clone https://github.com/yourusername/alternative-universe-generator.git
-```
-
-2. Navigate to the project directory:
-
-```
+git clone https://github.com/your-username/alternative-universe-generator.git
 cd alternative-universe-generator
 ```
 
-3. Create a virtual environment:
+2. Initialize configuration files:
 
 ```
-python -m venv venv
+make init-configs
 ```
 
-4. Activate the virtual environment:
-- On Windows:
-  ```
-  venv\Scripts\activate
-  ```
-- On macOS and Linux:
-  ```
-  source venv/bin/activate
-  ```
+This command will create a `.env` file from `.env.example` and a `compose.override.yaml` file from `compose.override.dev.yaml`.
 
-5. Install the required dependencies:
+
+3. Initialize the development environment:
 
 ```
-pip install -r requirements.txt
+make init-dev
 ```
+
+This command will install all necessary dependencies, set up pre-commit hooks, and perform any other required initialization steps.
 
 ## Usage
 
-Run the main script to generate an alternative universe:
+To run the application:
+
 ```
-python main.py
+make run
 ```
 
-The program will output:
-1. The changed historical event
-2. An alternative scenario
-3. A description of the resulting alternative universe
+This will generate an alternative historical scenario and output it to the console.
 
-## Project Structure
+## Development
 
-- `main.py`: The entry point of the application
-- `src/`:
-  - `event_selector.py`: Handles the selection of historical events
-  - `alternative_generator.py`: Generates alternative scenarios
-  - `world_builder.py`: Creates descriptions of alternative universes
-  - `consequence_engine.py`: Generates consequences of historical changes
-  - `text_formatter.py`: Formats the output text
-  - `exceptions.py`: Custom exception classes
-- `data/`:
-  - `historical_events.json`: Database of historical events
+For development purposes, you can use the following commands:
+
+- Format the code:
+
+```
+make format
+```
+
+- Run the linter:
+
+```
+- make lint
+```
+
+- Clean temporary files:
+-
+```
+make clean
+```
+
+## Testing
+
+To run the tests:
+```
+make test
+```
+
+## Docker
+
+The application can be run in a Docker container. Here are the available Docker-related commands:
+
+- Build the Docker image:
+
+```
+make docker-build
+```
+
+- Run the application in a Docker container:
+
+```
+make docker-run
+```
+
+- Start the application using Docker Compose:
+
+```
+make docker-up
+```
+
+- Stop the Docker Compose services:
+
+```
+make docker-down
+```
+
+- Remove all Docker-related resources (volumes, images, orphaned containers):
+
+```
+make docker-purge
+
+```
+
+These commands provide a full lifecycle management for Docker-based deployment of the application.
 
 ## Contributing
 
-Contributions to the Alternative Universe Generator are welcome! Please feel free to submit a Pull Request.
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-branch-name`
+3. Make your changes and commit them: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin feature-branch-name`
+5. Create a pull request.
+
+Before submitting a pull request, please ensure that your code passes all tests and linting checks:
+
+```
+make pre-commit-run-all
+```
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Thanks to all the history enthusiasts and alternate history writers who inspire projects like this.
-- Special thanks to the Python community for providing the tools and libraries that make this project possible.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -16,7 +16,9 @@ RUN pip install poetry && \
 COPY . .
 
 # Create directories for input and output files
-RUN mkdir -p /app/files_input /app/files_output
+RUN mkdir -p /app/files_input /app/files_output /app/logs
+
+RUN ls -R /app
 
 # Run the application
 CMD ["python", "main.py"]
