@@ -25,12 +25,11 @@ class TextFormatter:
         year = abs(event["year"])
         era = "CE" if event["year"] >= 0 else "BCE"
 
-        formatted_text = "=" * 50 + "\n"
+        formatted_text = "\n" + "=" * 50 + "\n"
         formatted_text += "Modified Historical Event:\n"
         formatted_text += f"{event['title']} ({year} {era})\n\n"
         formatted_text += f"Original Description:\n{event['description']}\n\n"
         formatted_text += f"Alternative Scenario:\n{alternative}\n"
-        formatted_text += "=" * 50 + "\n"
 
         return formatted_text
 
