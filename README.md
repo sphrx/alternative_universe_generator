@@ -26,64 +26,48 @@ Before you begin, ensure you have met the following requirements:
 To install the Alternative Universe Generator, follow these steps:
 
 1. Clone the repository:
-
 ```
 git clone https://github.com/your-username/alternative-universe-generator.git
 ```
-
 ```
 cd alternative_universe_generator
 ```
 
 2. Initialize configuration files:
-
 ```
 make init-configs
 ```
-
 This command will create a `.env` file from `.env.example` and a `compose.override.yaml` file from `compose.override.dev.yaml`.
 
-
 3. Initialize the development environment:
-
 ```
 make init-dev
 ```
-
 This command will install all necessary dependencies, set up pre-commit hooks, and perform any other required initialization steps.
 
 ## Usage
 
 To run the application:
-
 ```
 make run
 ```
-
 This will generate an alternative historical scenario and output it to the console.
 
 ## Development
 
 For development purposes, you can use the following commands:
-
 - Format the code:
-
 ```
 make format
 ```
-
 - Run the linter:
-
 ```
-- make lint
+make lint
 ```
-
 - Clean temporary files:
--
 ```
 make clean
 ```
-
 ## Testing
 
 To run the tests:
@@ -93,39 +77,39 @@ make test
 
 ## Docker
 
-The application can be run in a Docker container. Here are the available Docker-related commands:
+The application can be run using Docker Compose, which simplifies the process of building and running the containerized application. Here are the available Docker Compose commands:
 
-- Build the Docker image:
-
-```
-make docker-build
-```
-
-- Run the application in a Docker container:
-
-```
-make docker-run
-```
-
-- Start the application using Docker Compose:
-
+- Build and start the application:
 ```
 make docker-up
 ```
+This command builds the Docker image if it doesn't exist and starts the container.
 
-- Stop the Docker Compose services:
-
+- Stop the application:
 ```
-make docker-down
+- make docker-down
 ```
+This stops and removes the containers defined in the Docker Compose file.
 
-- Remove all Docker-related resources (volumes, images, orphaned containers):
-
+- Rebuild and restart the application:
 ```
-make docker-purge
+- make docker-rebuild
 ```
+Use this when you've made changes to the application and need to rebuild the Docker image.
 
-These commands provide a full lifecycle management for Docker-based deployment of the application.
+- View logs of the running application:
+```
+- make docker-logs
+```
+This shows the logs from the running container.
+
+- Remove all Docker-related resources:
+```
+- make docker-purge
+```
+This removes containers, volumes, and images created by Docker Compose for this project.
+
+These commands provide full lifecycle management for Docker-based deployment of the application using Docker Compose.
 
 ## Contributing
 

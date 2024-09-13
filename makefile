@@ -65,25 +65,25 @@ clean:
 	@rm -f logs/*.log
 	@rm -f files_output/*.txt
 
-.PHONY: docker-build
-docker-build:
-	@docker build -t alternative-universe .
+.PHONY: docker-up docker-down docker-rebuild docker-logs docker-exec docker-purge
 
-.PHONY: docker-run
-docker-run: docker-build
-	@docker run alternative-universe
-
-.PHONY: docker-up
 docker-up:
-	@docker-compose up -d
+	docker-compose up -d --build
 
-.PHONY: docker-down
 docker-down:
-	@docker-compose down
+	docker-compose down
 
-.PHONY: docker-purge
+docker-rebuild:
+	docker-compose up -d --build --force-recreate
+
+docker-logs:
+	docker-compose logs -f
+
+docker-exec:
+	docker-compose exec app $(CMD)
+
 docker-purge:
-	@docker-compose down -v --rmi all --remove-orphans
+	docker-compose down -v --rmi all --remove-orphans
 
 .PHONY: pre-commit-run
 pre-commit-run:
