@@ -42,19 +42,19 @@ init-dev: init-configs
 
 .PHONY: run
 run:
-	@poetry run python main.py
+	poetry run python main.py
 
 .PHONY: test
 test:
-	@pytest
+	poetry run pytest
 
 .PHONY: lint
 lint:
-	@ruff check .
+	poetry run ruff check .
 
 .PHONY: format
 format:
-	@ruff format .
+	poetry run ruff format .
 
 .PHONY: clean
 clean:
@@ -87,11 +87,11 @@ docker-purge:
 
 .PHONY: pre-commit-run
 pre-commit-run:
-	@pre-commit run
+	poetry run pre-commit run
 
 .PHONY: pre-commit-run-all
 pre-commit-run-all:
-	@pre-commit run --all-files
+	poetry run pre-commit run --all-files
 
 .PHONY: poetry-install
 poetry-install:
