@@ -123,7 +123,6 @@ make docker-down
 
 ```
 make docker-purge
-
 ```
 
 These commands provide a full lifecycle management for Docker-based deployment of the application.
