@@ -61,7 +61,7 @@ clean:
 	@find . -type f -name "*.py[co]" -delete
 	@find . -type d -name "__pycache__" -delete
 	@rm -rf .pytest_cache
-	@rm -rf .ruff_cache
+	@rm -rf .ruff_cacheE
 	@rm -f logs/*.log
 	@rm -f files_output/*.txt
 
@@ -70,6 +70,7 @@ clean:
 docker-build:
 	docker compose build
 
+docker-up:
 docker-up:
 	docker compose up
 
