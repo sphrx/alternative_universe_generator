@@ -67,23 +67,20 @@ clean:
 
 .PHONY: docker-up docker-down docker-rebuild docker-logs docker-exec docker-purge
 
+docker-build:
+	docker compose build
+
 docker-up:
-	docker-compose up -d --build
+	docker compose up
 
 docker-down:
-	docker-compose down
+	docker compose down
 
 docker-rebuild:
-	docker-compose up -d --build --force-recreate
-
-docker-logs:
-	docker-compose logs -f
-
-docker-exec:
-	docker-compose exec app $(CMD)
+	docker compose up -d --build --force-recreate
 
 docker-purge:
-	docker-compose down -v --rmi all --remove-orphans
+	docker compose down -v --rmi all --remove-orphans
 
 .PHONY: pre-commit-run
 pre-commit-run:
