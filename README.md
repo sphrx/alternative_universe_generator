@@ -53,6 +53,37 @@ make run
 ```
 This will generate an alternative historical scenario and output it to the console.
 
+# Docker
+
+The application can be run using Docker Compose, which simplifies the process of building and running the containerized application. Here are the available Docker Compose commands:
+
+- Build the application:
+```
+make docker-build
+```
+- Start the application:
+```
+make docker-up
+```
+This command builds the Docker image if it doesn't exist and starts the container.
+
+- Stop the application:
+```
+- make docker-down
+```
+This stops and removes the containers defined in the Docker Compose file.
+- Rebuild and restart the application:
+```
+- make docker-rebuild
+```
+Use this when you've made changes to the application and need to rebuild the Docker image.
+- Remove all Docker-related resources:
+```
+- make docker-purge
+```
+This removes containers, volumes, and images created by Docker Compose for this project.
+These commands provide full lifecycle management for Docker-based deployment of the application using Docker Compose.
+
 ## Development
 
 For development purposes, you can use the following commands:
@@ -74,42 +105,6 @@ To run the tests:
 ```
 make test
 ```
-
-## Docker
-
-The application can be run using Docker Compose, which simplifies the process of building and running the containerized application. Here are the available Docker Compose commands:
-
-- Build and start the application:
-```
-make docker-up
-```
-This command builds the Docker image if it doesn't exist and starts the container.
-
-- Stop the application:
-```
-- make docker-down
-```
-This stops and removes the containers defined in the Docker Compose file.
-
-- Rebuild and restart the application:
-```
-- make docker-rebuild
-```
-Use this when you've made changes to the application and need to rebuild the Docker image.
-
-- View logs of the running application:
-```
-- make docker-logs
-```
-This shows the logs from the running container.
-
-- Remove all Docker-related resources:
-```
-- make docker-purge
-```
-This removes containers, volumes, and images created by Docker Compose for this project.
-
-These commands provide full lifecycle management for Docker-based deployment of the application using Docker Compose.
 
 ## Contributing
 
