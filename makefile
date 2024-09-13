@@ -35,11 +35,11 @@ init-configs:
 # Init environment for development
 init-dev: init-configs
 	@make poetry-install && \
-	pre-commit install
+	poetry run pre-commit install
 
 .PHONY: run
 run:
-	@python main.py
+	@poetry run python main.py
 
 .PHONY: test
 test:
