@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 import argparse
 import json
 import logging
-import secrets
+import random
 from typing import Any
+from pathlib import Path
 
 from dotenv import load_dotenv
 from faker import Faker
@@ -67,11 +67,14 @@ def save_alternative_universe(universe_description: str, filename: str) -> None:
     """Save the generated alternative universe to a file."""
     output_file = OUTPUT_DIR / filename
     try:
-        with open(output_file, "w") as file:
+        with open(output_file, "w", encoding="utf-8") as file:
             file.write(universe_description)
-    except OSError:
-        logger.exception(f"Error writing to file {output_file}")
-        raise
+        logger.info(f"Alternative universe saved to {output_file}")
+    except IOError as e:
+        logger.error(f"Error writing to file {output_file}: {e}")
+        print(
+            f"Error: Could not save output to {output_file}. Check permissions and try again."
+        )
 
 
 def log_generation_process(
@@ -118,7 +121,7 @@ def main() -> None:
     args = parse_arguments()
 
     if args.seed is not None:
-        secrets.seed(args.seed)
+        random.seed(args.seed)
         Faker.seed(args.seed)
 
     try:
@@ -145,33 +148,29 @@ def main() -> None:
 
         alternative = alternative_generator.generate_alternative(selected_event)
         world_description = world_builder.build_world_description(
-            historical_events["events"],
-            selected_event,
-            alternative,
+            historical_events["events"], selected_event, alternative
         )
 
         formatted_output = text_formatter.format_event(selected_event, alternative)
         formatted_output += "\n\n" + text_formatter.format_world_description(
-            world_description,
+            world_description
         )
 
         output_filename = f"alternative_universe_{selected_event['id']}.txt"
 
-        if args.output in ["file", "both"]:
-            save_alternative_universe(formatted_output, output_filename)
+        # Always save the output to a file
+        save_alternative_universe(formatted_output, output_filename)
 
         if args.output in ["console", "both"]:
             print(formatted_output)
 
         log_generation_process(
-            len(historical_events["events"]),
-            selected_event,
-            alternative,
+            len(historical_events["events"]), selected_event, alternative
         )
 
     except Exception as e:
-        logger.exception(f"An error occurred during generation: {e!s}")
-        print(f"An error occurred: {e!s}")
+        logger.exception(f"An error occurred during generation: {str(e)}")
+        print(f"An error occurred: {str(e)}")
 
 
 if __name__ == "__main__":
