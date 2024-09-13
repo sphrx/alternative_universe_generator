@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 import argparse
 import json
 import logging
 import secrets
-from pathlib import Path
 from typing import Any
 
 from dotenv import load_dotenv
@@ -20,20 +20,30 @@ from src.world_builder import WorldBuilder
 load_dotenv()
 
 # Define paths
-DATA_DIR = Path("data")
-INPUT_DIR = Path("files_input")
-OUTPUT_DIR = Path("files_output")
-LOG_DIR = Path("logs")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+INPUT_DIR = BASE_DIR / "files_input"
+OUTPUT_DIR = BASE_DIR / "files_output"
+LOG_DIR = BASE_DIR / "logs"
 
 # Setup logging
 LOG_DIR.mkdir(exist_ok=True)
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[
-        logging.FileHandler(LOG_DIR / "alternative_universe.log"),
-    ],
-)
+log_file = LOG_DIR / "alternative_universe.log"
+try:
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        handlers=[
+            logging.FileHandler(log_file),
+        ],
+    )
+except PermissionError:
+    print(f"Warning: Unable to write to log file {log_file}. Logging to console only.")
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        handlers=[logging.StreamHandler()],
+    )
 
 logger = logging.getLogger(__name__)
 

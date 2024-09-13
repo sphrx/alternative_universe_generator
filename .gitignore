@@ -11,6 +11,14 @@ app_logs/*
 # Environment variables
 .env
 
+files_input/*
+!files_input
+!files_input/.gitkeep
+
+files_output/*
+!files_output
+!files_output/.gitkeep
+
 # Logs
 logs/*
 !logs/.gitkeep
@@ -184,3 +192,6 @@ cython_debug/
 /files_input/
 /files_output/
 /logs/
+/files_input/
+/files_output/
+/files_input/
