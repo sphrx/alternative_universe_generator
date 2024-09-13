@@ -28,13 +28,13 @@ help:
 .PHONY: init-configs
 # Configuration files initialization
 init-configs:
-    @cp -n .env.example .env || true
-    @cp -n compose.override.dev.yaml compose.override.yaml || true
-#    @mkdir -p files_input files_output logs
-    @chmod 755 files_input files_output logs
-    @touch logs/alternative_universe.log
-    @chmod 644 logs/alternative_universe.log
-    @echo "Configuration initialized. Directories and files created with appropriate permissions."
+	@cp -n .env.example .env || true
+	@cp -n compose.override.dev.yaml compose.override.yaml || true
+#	@mkdir -p files_input files_output logs
+	@chmod 755 files_input files_output logs
+	@touch logs/alternative_universe.log
+	@chmod 644 logs/alternative_universe.log
+	@echo "Configuration initialized. Directories and files created with appropriate permissions."
 
 .PHONY: init-dev
 # Init environment for development
