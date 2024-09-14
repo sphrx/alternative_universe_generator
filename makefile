@@ -1,3 +1,7 @@
+# Check for required tools
+POETRY := $(shell command -v poetry 2> /dev/null)
+DOCKER := $(shell command -v docker 2> /dev/null)
+
 # Get user id for macOS and Linux
 ifeq ($(shell uname),Darwin)
     USER_ID := $(shell id -u)
@@ -8,25 +12,34 @@ endif
 .PHONY: help
 help:
 	@echo "Available commands:"
-	@echo "  make init-configs          - Initialize configuration files"
-	@echo "  make init-dev              - Initialize development environment"
-	@echo "  make run                   - Run the application"
-	@echo "  make test                  - Run tests"
-	@echo "  make lint                  - Run linter"
-	@echo "  make format                - Format code"
-	@echo "  make clean                 - Clean temporary files"
-	@echo "  make docker-build          - Build Docker image"
-	@echo "  make docker-run            - Run application in Docker"
-	@echo "  make docker-up             - Start Docker Compose services"
-	@echo "  make docker-down           - Stop Docker Compose services"
-	@echo "  make docker-purge          - Remove all Docker resources"
-	@echo "  make pre-commit-run        - Run pre-commit hooks"
-	@echo "  make pre-commit-run-all    - Run pre-commit hooks on all files"
-	@echo "  make poetry-install        - Install dependencies"
-	@echo "  make poetry-update         - Update dependencies"
+	@echo "  make check-requirements   - Check if all required tools are installed"
+	@echo "  make init-configs         - Initialize configuration files"
+	@echo "  make init-dev             - Initialize development environment"
+	@echo "  make run                  - Run the application"
+	@echo "  make test                 - Run tests"
+	@echo "  make lint                 - Run linter"
+	@echo "  make format               - Format code"
+	@echo "  make clean                - Clean temporary files"
+	@echo "  make docker-build         - Build Docker image"
+	@echo "  make docker-up            - Start Docker Compose services"
+	@echo "  make docker-down          - Stop Docker Compose services"
+	@echo "  make docker-purge         - Remove all Docker resources"
+
+.PHONY: check-requirements
+check-requirements:
+	@echo "Checking required tools..."
+	@if [ -z "$(POETRY)" ]; then \
+		echo "Poetry is not installed. Please install it using:"; \
+		echo "pip install poetry"; \
+		exit 1; \
+	fi
+	@if [ -z "$(DOCKER)" ]; then \
+		echo "Docker is not installed. Please install Docker and Docker Compose."; \
+		exit 1; \
+	fi
+	@echo "All required tools are installed."
 
 .PHONY: init-configs
-# Configuration files initialization
 init-configs:
 	@cp -n .env.example .env || true
 	@cp -n compose.override.dev.yaml compose.override.yaml || true
@@ -35,26 +48,45 @@ init-configs:
 	@echo "Configuration initialized. Directories and files created."
 
 .PHONY: init-dev
-# Init environment for development
-init-dev: init-configs
-	@make poetry-install && \
-	poetry run pre-commit install
+init-dev: check-requirements init-configs
+	@if [ -n "$(POETRY)" ]; then \
+		poetry install --no-root --sync && \
+		poetry run pre-commit install; \
+	else \
+		echo "Poetry is not installed. Please install it and run 'make init-dev' again."; \
+	fi
 
 .PHONY: run
-run:
-	poetry run python main.py
+run: check-requirements
+	@if [ -n "$(POETRY)" ]; then \
+		poetry run python main.py; \
+	else \
+		echo "Poetry is not installed. Please install it and run 'make init-dev' first."; \
+	fi
 
 .PHONY: test
-test:
-	poetry run pytest
+test: check-requirements
+	@if [ -n "$(POETRY)" ]; then \
+		poetry run pytest; \
+	else \
+		echo "Poetry is not installed. Please install it and run 'make init-dev' first."; \
+	fi
 
 .PHONY: lint
-lint:
-	poetry run ruff check .
+lint: check-requirements
+	@if [ -n "$(POETRY)" ]; then \
+		poetry run ruff check .; \
+	else \
+		echo "Poetry is not installed. Please install it and run 'make init-dev' first."; \
+	fi
 
 .PHONY: format
-format:
-	poetry run ruff format .
+format: check-requirements
+	@if [ -n "$(POETRY)" ]; then \
+		poetry run ruff format .; \
+	else \
+		echo "Poetry is not installed. Please install it and run 'make init-dev' first."; \
+	fi
 
 .PHONY: clean
 clean:
@@ -65,21 +97,35 @@ clean:
 	@rm -f logs/*.log
 	@rm -f files_output/*.txt
 
-.PHONY: docker-up docker-down docker-rebuild docker-logs docker-exec docker-purge
+.PHONY: docker-build docker-up docker-down docker-purge
 
-docker-build:
-	docker compose build
+docker-build: check-requirements
+	@if [ -n "$(DOCKER)" ]; then \
+		docker compose build; \
+	else \
+		echo "Docker is not installed. Please install Docker and Docker Compose."; \
+	fi
 
-docker-up:
-	docker compose up
+docker-up: check-requirements
+	@if [ -n "$(DOCKER)" ]; then \
+		docker compose up -d; \
+	else \
+		echo "Docker is not installed. Please install Docker and Docker Compose."; \
+	fi
 
-docker-down:docker compose down
+docker-down: check-requirements
+	@if [ -n "$(DOCKER)" ]; then \
+		docker compose down; \
+	else \
+		echo "Docker is not installed. Please install Docker and Docker Compose."; \
+	fi
 
-docker-rebuild:
-	docker compose up -d --build --force-recreate
-
-docker-purge:
-	docker compose down -v --rmi all --remove-orphans
+docker-purge: check-requirements
+	@if [ -n "$(DOCKER)" ]; then \
+		docker compose down -v --rmi all --remove-orphans; \
+	else \
+		echo "Docker is not installed. Please install Docker and Docker Compose."; \
+	fi
 
 .PHONY: pre-commit-run
 pre-commit-run:
